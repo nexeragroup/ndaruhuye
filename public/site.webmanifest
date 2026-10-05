@@ -1,8 +1,38 @@
 {
   "name": "Ndaruhuye | Software Engineer",
   "short_name": "Ndaruhuye",
+  "description": "Software engineering, systems, data, and AI portfolio by Ndaruhuye.",
+  "id": "/",
   "start_url": "/",
+  "scope": "/",
   "display": "browser",
+  "display_override": ["window-controls-overlay", "standalone", "browser"],
   "background_color": "#0b1730",
-  "theme_color": "#0b1730"
+  "theme_color": "#0b1730",
+  "lang": "en",
+  "dir": "ltr",
+  "orientation": "any",
+  "categories": ["business", "portfolio", "productivity"],
+  "icons": [
+    {
+      "src": "/favicon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ],
+  "shortcuts": [
+    {
+      "name": "Selected work",
+      "short_name": "Projects",
+      "url": "/projects",
+      "description": "View selected software engineering work."
+    },
+    {
+      "name": "Contact",
+      "short_name": "Contact",
+      "url": "/contact",
+      "description": "Get in touch with Ndaruhuye."
+    }
+  ]
 }
