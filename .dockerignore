@@ -1,0 +1,8 @@
+.angular
+.git
+.github
+dist
+node_modules
+coverage
+deploy
+.env.*

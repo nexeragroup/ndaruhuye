@@ -1,0 +1,602 @@
+<div class="contact-page portfolio-page">
+
+  <!-- =====================================================
+       HERO
+  ====================================================== -->
+
+  <section class="contact-hero">
+
+    <div class="contact-hero__grid" aria-hidden="true"></div>
+
+    <div class="page-container contact-hero__layout">
+
+      <div class="contact-hero__content">
+
+        <p class="eyebrow">
+          01 · Contact
+        </p>
+
+        <h1>
+          Have something
+          <span>worth building?</span>
+        </h1>
+
+        <p class="contact-hero__intro">
+          Tell me about the problem, system, or idea you're
+          working on. Whether it involves software, data,
+          AI, automation, architecture, or technical
+          direction, the conversation can start with the
+          challenge.
+        </p>
+
+
+        <div class="contact-hero__availability">
+
+          <span class="availability-signal" aria-hidden="true"></span>
+
+          <div>
+            <span>Availability</span>
+
+            <strong>
+              Open to selected projects & collaborations
+            </strong>
+          </div>
+
+        </div>
+
+      </div>
+
+
+      <!-- CONTACT SYSTEM -->
+
+      <div class="contact-system" aria-hidden="true">
+
+        <div class="contact-system__header">
+
+          <div>
+            <span class="contact-system__signal"></span>
+            CONNECTION / REQUEST
+          </div>
+
+          <span>READY</span>
+
+        </div>
+
+
+        <div class="contact-system__body">
+
+          <div class="contact-system__grid"></div>
+
+          <div class="contact-system__axis contact-system__axis--x"></div>
+          <div class="contact-system__axis contact-system__axis--y"></div>
+
+          <div class="contact-system__orbit contact-system__orbit--outer"></div>
+          <div class="contact-system__orbit contact-system__orbit--inner"></div>
+
+
+          <div class="contact-system__core">
+
+            <span>START</span>
+
+            <strong>
+              Conversation
+            </strong>
+
+            <small>
+              Let's connect
+            </small>
+
+          </div>
+
+
+          <div class="contact-system__node contact-system__node--problem">
+            <span>01</span>
+            <strong>Problem</strong>
+          </div>
+
+          <div class="contact-system__node contact-system__node--idea">
+            <span>02</span>
+            <strong>Idea</strong>
+          </div>
+
+          <div class="contact-system__node contact-system__node--system">
+            <span>03</span>
+            <strong>System</strong>
+          </div>
+
+          <div class="contact-system__node contact-system__node--solution">
+            <span>04</span>
+            <strong>Solution</strong>
+          </div>
+
+        </div>
+
+
+        <div class="contact-system__footer">
+          <span>CONNECT</span>
+          <span>DISCUSS</span>
+          <span>BUILD</span>
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- =====================================================
+       CONTACT / FORM
+  ====================================================== -->
+
+  <section class="section contact-main">
+
+    <div class="page-container contact-main__layout">
+
+      <!-- CONTACT INFORMATION -->
+
+      <aside class="contact-information">
+
+        <div class="contact-information__heading">
+
+          <p class="eyebrow">
+            02 · Let's talk
+          </p>
+
+          <h2>
+            Start with the problem.
+          </h2>
+
+          <p>
+            You don't need a complete technical specification.
+            A description of what you're trying to achieve,
+            what isn't working, or what you want to explore is
+            enough to start.
+          </p>
+
+        </div>
+
+
+        <div class="contact-channels">
+
+          @for (
+          channel of contactChannels;
+          track channel.number
+          ) {
+
+          <div class="contact-channel">
+
+            <span class="contact-channel__number">
+              {{ channel.number }}
+            </span>
+
+            <div>
+
+              <span class="contact-channel__label">
+                {{ channel.label }}
+              </span>
+
+              @if (channel.href) {
+
+              <a [href]="channel.href" [attr.target]="
+                      channel.external
+                        ? '_blank'
+                        : null
+                    " [attr.rel]="
+                      channel.external
+                        ? 'noopener noreferrer'
+                        : null
+                    ">
+                {{ channel.value }}
+              </a>
+
+              } @else {
+
+              <strong>
+                {{ channel.value }}
+              </strong>
+
+              }
+
+            </div>
+
+          </div>
+
+          }
+
+        </div>
+
+
+        <div class="contact-note">
+
+          <span class="contact-note__signal"></span>
+
+          <div>
+            <strong>
+              What helps in a first message?
+            </strong>
+
+            <p>
+              A little context about the problem, your
+              organization or project, and what outcome
+              you're hoping to achieve.
+            </p>
+          </div>
+
+        </div>
+
+      </aside>
+
+
+      <!-- FORM -->
+
+      <div class="contact-form-wrapper">
+
+        <div class="contact-form__header">
+
+          <div>
+            <span>PROJECT / INQUIRY</span>
+
+            <strong>
+              Tell me what you're working on.
+            </strong>
+          </div>
+
+          <span>
+            01 — 05
+          </span>
+
+        </div>
+
+
+        <form class="contact-form" [formGroup]="contactForm" (ngSubmit)="submitForm()" novalidate>
+
+          <!-- NAME -->
+
+          <div class="form-field">
+
+            <label for="contact-name">
+              Name
+              <span>*</span>
+            </label>
+
+            <input id="contact-name" type="text" formControlName="name" autocomplete="name" placeholder="Your name" />
+
+            @if (
+            nameControl?.invalid &&
+            (
+            nameControl?.touched ||
+            submitted
+            )
+            ) {
+            <small class="form-error">
+              Please enter your name.
+            </small>
+            }
+
+          </div>
+
+
+          <!-- EMAIL -->
+
+          <div class="form-field">
+
+            <label for="contact-email">
+              Email
+              <span>*</span>
+            </label>
+
+            <input id="contact-email" type="email" formControlName="email" autocomplete="email"
+              placeholder="you@example.com" />
+
+            @if (
+            emailControl?.invalid &&
+            (
+            emailControl?.touched ||
+            submitted
+            )
+            ) {
+            <small class="form-error">
+              Please enter a valid email address.
+            </small>
+            }
+
+          </div>
+
+
+          <!-- ORGANIZATION -->
+
+          <div class="form-field">
+
+            <label for="contact-organization">
+              Organization
+              <small>Optional</small>
+            </label>
+
+            <input id="contact-organization" type="text" formControlName="organization" autocomplete="organization"
+              placeholder="Company or organization" />
+
+          </div>
+
+
+          <!-- PROJECT TYPE -->
+
+          <div class="form-field">
+
+            <label for="contact-project-type">
+              What are you building?
+              <span>*</span>
+            </label>
+
+            <div class="select-wrapper">
+
+              <select id="contact-project-type" formControlName="projectType">
+
+                <option value="" disabled>
+                  Select project type
+                </option>
+
+                @for (
+                type of projectTypes;
+                track type.value
+                ) {
+                <option [value]="type.value">
+                  {{ type.label }}
+                </option>
+                }
+
+              </select>
+
+
+              <svg viewBox="0 0 24 24" aria-hidden="true">
+                <path d="m6 9 6 6 6-6" />
+              </svg>
+
+            </div>
+
+
+            @if (
+            projectTypeControl?.invalid &&
+            (
+            projectTypeControl?.touched ||
+            submitted
+            )
+            ) {
+            <small class="form-error">
+              Please select a project type.
+            </small>
+            }
+
+          </div>
+
+
+          <!-- MESSAGE -->
+
+          <div class="form-field form-field--message">
+
+            <label for="contact-message">
+              Tell me about the challenge
+              <span>*</span>
+            </label>
+
+            <textarea id="contact-message" formControlName="message" rows="7"
+              placeholder="What are you trying to build, improve, automate, or solve?"></textarea>
+
+            <div class="form-field__meta">
+
+              @if (
+              messageControl?.invalid &&
+              (
+              messageControl?.touched ||
+              submitted
+              )
+              ) {
+              <small class="form-error">
+                Please provide at least a little context.
+              </small>
+              } @else {
+              <small>
+                A few sentences are enough.
+              </small>
+              }
+
+              <small>
+                Min. 20 characters
+              </small>
+
+            </div>
+
+          </div>
+
+
+          <!-- SUBMIT -->
+
+          <div class="contact-form__footer">
+
+            <p>
+              Submitting will open your email application
+              with the message prepared.
+            </p>
+
+            <button type="submit" class="submit-button">
+              <span>
+                Send inquiry
+              </span>
+
+              <svg viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M5 12h14" />
+                <path d="m13 6 6 6-6 6" />
+              </svg>
+            </button>
+
+          </div>
+
+        </form>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- =====================================================
+       COLLABORATION TYPES
+  ====================================================== -->
+
+  <section class="section collaboration">
+
+    <div class="page-container">
+
+      <div class="collaboration__heading">
+
+        <div>
+
+          <p class="eyebrow">
+            03 · Good conversations
+          </p>
+
+          <h2>
+            What can we talk about?
+          </h2>
+
+        </div>
+
+        <p>
+          The starting point doesn't need to be a predefined
+          service. Sometimes the most useful first step is
+          understanding what technology could solve.
+        </p>
+
+      </div>
+
+
+      <div class="collaboration-grid">
+
+        <article class="collaboration-card">
+
+          <span>01</span>
+
+          <h3>
+            Build something new
+          </h3>
+
+          <p>
+            A new platform, application, internal system,
+            API, data product, or digital service.
+          </p>
+
+        </article>
+
+
+        <article class="collaboration-card">
+
+          <span>02</span>
+
+          <h3>
+            Improve an existing system
+          </h3>
+
+          <p>
+            Architecture, integrations, workflows,
+            performance, infrastructure, or modernization.
+          </p>
+
+        </article>
+
+
+        <article class="collaboration-card">
+
+          <span>03</span>
+
+          <h3>
+            Explore data & AI
+          </h3>
+
+          <p>
+            AI-enabled applications, automation, information
+            access, agents, and data-driven workflows.
+          </p>
+
+        </article>
+
+
+        <article class="collaboration-card">
+
+          <span>04</span>
+
+          <h3>
+            Technical direction
+          </h3>
+
+          <p>
+            Architecture decisions, solution design,
+            technology selection, and implementation
+            planning.
+          </p>
+
+        </article>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- =====================================================
+       DIRECT CONTACT
+  ====================================================== -->
+
+  <section class="section direct-contact">
+
+    <div class="page-container">
+
+      <div class="direct-contact__card">
+
+        <div class="direct-contact__content">
+
+          <p class="eyebrow">
+            Prefer email?
+          </p>
+
+          <h2>
+            Skip the form.
+          </h2>
+
+          <p>
+            Send a message directly and include whatever
+            context you already have.
+          </p>
+
+        </div>
+
+
+        <a class="direct-contact__email" [href]="'mailto:' + email">
+
+          <div>
+
+            <span>
+              Email Ndaruhuye
+            </span>
+
+            <strong>
+              {{ email }}
+            </strong>
+
+          </div>
+
+          <svg viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M5 12h14" />
+            <path d="m13 6 6 6-6 6" />
+          </svg>
+
+        </a>
+
+      </div>
+
+    </div>
+
+  </section>
+
+</div>

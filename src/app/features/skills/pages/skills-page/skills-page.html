@@ -1,0 +1,435 @@
+<div class="skills-page portfolio-page">
+
+  <!-- HERO -->
+  <section class="skills-hero">
+
+    <div class="skills-hero__grid" aria-hidden="true"></div>
+
+    <div class="page-container skills-hero__layout">
+
+      <div class="skills-hero__content">
+
+        <p class="eyebrow">
+          01 · Skills & Expertise
+        </p>
+
+        <h1>
+          Tools change.
+          <span>Engineering principles scale.</span>
+        </h1>
+
+        <p class="skills-hero__intro">
+          I work across the technology stack—from interfaces
+          and APIs to databases, AI, infrastructure, and
+          deployment—to build complete digital systems.
+        </p>
+
+        <div class="skills-hero__summary">
+
+          <div>
+            <span>Primary focus</span>
+            <strong>Full-stack systems</strong>
+          </div>
+
+          <div>
+            <span>Extended focus</span>
+            <strong>Data + AI</strong>
+          </div>
+
+          <div>
+            <span>Delivery</span>
+            <strong>Architecture → Production</strong>
+          </div>
+
+        </div>
+
+      </div>
+
+
+      <!-- SYSTEM VISUAL -->
+      <div class="stack-system" aria-hidden="true">
+
+        <div class="stack-system__header">
+          <div>
+            <span class="stack-system__signal"></span>
+            CAPABILITY / MAP
+          </div>
+
+          <span>04 DOMAINS</span>
+        </div>
+
+        <div class="stack-system__body">
+
+          <div class="stack-system__axis"></div>
+
+          @for (
+          group of skillGroups;
+          track group.id;
+          let i = $index
+          ) {
+
+          <div class="stack-system__node" [class]="'stack-system__node stack-system__node--' + group.id">
+            <span>{{ group.number }}</span>
+
+            <strong>
+              {{ group.label }}
+            </strong>
+
+            <small>
+              {{ group.title }}
+            </small>
+          </div>
+
+          }
+
+          <div class="stack-system__core">
+            <span>SYS</span>
+            <strong>Engineering</strong>
+            <small>End-to-end</small>
+          </div>
+
+        </div>
+
+        <div class="stack-system__footer">
+          <span>BUILD</span>
+          <span>CONNECT</span>
+          <span>LEARN</span>
+          <span>DELIVER</span>
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- CORE EXPERTISE -->
+  <section class="section expertise" id="expertise">
+
+    <div class="page-container">
+
+      <div class="section-heading">
+
+        <p class="eyebrow">
+          02 · Core expertise
+        </p>
+
+        <h2>
+          Capabilities across the system.
+        </h2>
+
+        <p>
+          I don't treat technologies as isolated skills.
+          Each one plays a role in designing, building,
+          connecting, and operating complete products.
+        </p>
+
+      </div>
+
+
+      <div class="expertise-grid">
+
+        @for (
+        group of skillGroups;
+        track group.id
+        ) {
+
+        <article [class]="
+              'expertise-card expertise-card--' +
+              group.id
+            ">
+
+          <div class="expertise-card__top">
+
+            <span class="expertise-card__number">
+              {{ group.number }}
+            </span>
+
+            <span class="expertise-card__label">
+              {{ group.label }}
+            </span>
+
+          </div>
+
+          <div class="expertise-card__content">
+
+            <h3>
+              {{ group.title }}
+            </h3>
+
+            <p>
+              {{ group.description }}
+            </p>
+
+          </div>
+
+          <div class="expertise-card__skills">
+
+            @for (
+            skill of group.skills;
+            track skill.name
+            ) {
+            <span>
+              {{ skill.name }}
+            </span>
+            }
+
+          </div>
+
+        </article>
+
+        }
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- TECHNOLOGY STACK -->
+  <section class="section technology">
+
+    <div class="page-container">
+
+      <div class="technology__heading">
+
+        <div>
+          <p class="eyebrow">
+            03 · Technology stack
+          </p>
+
+          <h2>
+            The tools behind the systems.
+          </h2>
+        </div>
+
+        <p>
+          Technologies I use across product development,
+          integrations, data systems, intelligent workflows,
+          and production infrastructure.
+        </p>
+
+      </div>
+
+
+      <div class="technology-list">
+
+        @for (
+        group of skillGroups;
+        track group.id
+        ) {
+
+        <article class="technology-row">
+
+          <div class="technology-row__identity">
+
+            <span>
+              {{ group.number }}
+            </span>
+
+            <h3>
+              {{ group.title }}
+            </h3>
+
+          </div>
+
+
+          <div class="technology-row__skills">
+
+            @for (
+            skill of group.skills;
+            track skill.name
+            ) {
+            <span>
+              {{ skill.name }}
+            </span>
+            }
+
+          </div>
+
+        </article>
+
+        }
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- SYSTEM CONNECTION -->
+  <section class="section system">
+
+    <div class="page-container">
+
+      <div class="section-heading section-heading--system">
+
+        <p class="eyebrow">
+          04 · How it connects
+        </p>
+
+        <h2>
+          One system. Multiple layers.
+        </h2>
+
+        <p>
+          Modern products rarely live in one technology.
+          My work often crosses the full path from the
+          interface a person uses to the infrastructure
+          keeping the system running.
+        </p>
+
+      </div>
+
+
+      <div class="system-flow">
+
+        @for (
+        layer of systemLayers;
+        track layer.number;
+        let last = $last
+        ) {
+
+        <article class="system-layer">
+
+          <div class="system-layer__number">
+            {{ layer.number }}
+          </div>
+
+          <div class="system-layer__content">
+
+            <span>
+              {{ layer.label }}
+            </span>
+
+            <h3>
+              {{ layer.title }}
+            </h3>
+
+            <p>
+              {{ layer.technologies }}
+            </p>
+
+          </div>
+
+        </article>
+
+        @if (!last) {
+        <div class="system-flow__connector" aria-hidden="true">
+          <span></span>
+        </div>
+        }
+
+        }
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- ENGINEERING STRENGTHS -->
+  <section class="section strengths">
+
+    <div class="page-container strengths__layout">
+
+      <div class="strengths__intro">
+
+        <p class="eyebrow">
+          05 · Engineering strengths
+        </p>
+
+        <h2>
+          The skills behind the technologies.
+        </h2>
+
+        <p>
+          Frameworks are only part of engineering. The
+          ability to understand systems, make technical
+          decisions, integrate components, and deliver
+          reliably matters just as much.
+        </p>
+
+      </div>
+
+
+      <div class="strengths__list">
+
+        @for (
+        strength of engineeringStrengths;
+        track strength.number
+        ) {
+
+        <article class="strength-item">
+
+          <span class="strength-item__number">
+            {{ strength.number }}
+          </span>
+
+          <div>
+
+            <h3>
+              {{ strength.title }}
+            </h3>
+
+            <p>
+              {{ strength.description }}
+            </p>
+
+          </div>
+
+        </article>
+
+        }
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- CTA -->
+  <section class="section skills-cta">
+
+    <div class="page-container">
+
+      <div class="skills-cta__card">
+
+        <div class="skills-cta__content">
+
+          <p class="eyebrow">
+            Skills in practice
+          </p>
+
+          <h2>
+            Technology matters most when it ships.
+          </h2>
+
+          <p>
+            Explore the platforms and systems where these
+            capabilities have been applied to real problems.
+          </p>
+
+        </div>
+
+        <a class="skills-cta__action" routerLink="/" fragment="projects">
+          <span>View selected work</span>
+
+          <svg viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M5 12h14" />
+            <path d="m13 6 6 6-6 6" />
+          </svg>
+        </a>
+
+      </div>
+
+    </div>
+
+  </section>
+
+</div>

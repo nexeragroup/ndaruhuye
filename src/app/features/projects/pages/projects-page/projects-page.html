@@ -1,0 +1,608 @@
+<div class="projects-page portfolio-page">
+
+  <!-- =====================================================
+       HERO
+  ====================================================== -->
+
+  <section class="projects-hero">
+
+    <div class="projects-hero__grid" aria-hidden="true"></div>
+
+    <div class="page-container projects-hero__layout">
+
+      <div class="projects-hero__content">
+
+        <p class="eyebrow">
+          01 · Selected Work
+        </p>
+
+        <h1>
+          Systems built around
+          <span>real-world problems.</span>
+        </h1>
+
+        <p class="projects-hero__intro">
+          A selection of digital platforms, operational
+          systems, data products, and AI-enabled solutions
+          designed to move from technical requirements into
+          real use.
+        </p>
+
+        <div class="projects-hero__meta">
+
+          <div>
+            <span>Focus</span>
+            <strong>Complete digital systems</strong>
+          </div>
+
+          <div>
+            <span>Coverage</span>
+            <strong>Architecture → Delivery</strong>
+          </div>
+
+          <div>
+            <span>Domains</span>
+            <strong>Software · Data · AI</strong>
+          </div>
+
+        </div>
+
+      </div>
+
+
+      <!-- PROJECT MAP -->
+
+      <div class="project-map" aria-hidden="true">
+
+        <div class="project-map__header">
+
+          <div>
+            <span class="project-map__signal"></span>
+            PROJECT / INDEX
+          </div>
+
+          <span>
+            {{ projects.length }} SYSTEMS
+          </span>
+
+        </div>
+
+
+        <div class="project-map__body">
+
+          <div class="project-map__axis project-map__axis--x"></div>
+          <div class="project-map__axis project-map__axis--y"></div>
+
+          <div class="project-map__orbit project-map__orbit--outer"></div>
+          <div class="project-map__orbit project-map__orbit--inner"></div>
+
+
+          <div class="project-map__core">
+
+            <span>WORK</span>
+
+            <strong>
+              Systems
+            </strong>
+
+            <small>
+              In practice
+            </small>
+
+          </div>
+
+
+          <div class="project-map__node project-map__node--one">
+            <span>01</span>
+            <strong>Platform</strong>
+          </div>
+
+          <div class="project-map__node project-map__node--two">
+            <span>02</span>
+            <strong>Data</strong>
+          </div>
+
+          <div class="project-map__node project-map__node--three">
+            <span>03</span>
+            <strong>AI</strong>
+          </div>
+
+          <div class="project-map__node project-map__node--four">
+            <span>04</span>
+            <strong>Operations</strong>
+          </div>
+
+        </div>
+
+
+        <div class="project-map__footer">
+          <span>DESIGN</span>
+          <span>BUILD</span>
+          <span>SHIP</span>
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- =====================================================
+       FEATURED PROJECT
+  ====================================================== -->
+
+  <section class="section featured">
+
+    <div class="page-container">
+
+      <div class="section-heading">
+
+        <p class="eyebrow">
+          02 · Featured project
+        </p>
+
+        <h2>
+          A closer look at the work.
+        </h2>
+
+      </div>
+
+
+      <article class="featured-project">
+
+        <div class="featured-project__visual">
+
+          <div class="featured-project__visual-grid"></div>
+
+          <div class="featured-project__visual-top">
+
+            <span>
+              {{ featuredProject.number }}
+            </span>
+
+            @if (featuredProject.status) {
+            <span class="project-status">
+              <i></i>
+              {{ featuredProject.status }}
+            </span>
+            }
+
+          </div>
+
+
+          <div class="featured-project__diagram">
+
+            <div class="diagram-node diagram-node--input">
+              <span>01</span>
+              <strong>Information</strong>
+            </div>
+
+            <div class="diagram-line diagram-line--one"></div>
+
+            <div class="diagram-core">
+              <span>AI</span>
+              <strong>DIGEST</strong>
+            </div>
+
+            <div class="diagram-line diagram-line--two"></div>
+
+            <div class="diagram-node diagram-node--output">
+              <span>02</span>
+              <strong>Insight</strong>
+            </div>
+
+          </div>
+
+
+          <div class="featured-project__visual-bottom">
+            <span>AGGREGATE</span>
+            <span>PROCESS</span>
+            <span>SHARE</span>
+          </div>
+
+        </div>
+
+
+        <div class="featured-project__content">
+
+          <div>
+
+            <span class="project-category">
+              {{ featuredProject.category }}
+            </span>
+
+            <h3>
+              {{ featuredProject.title }}
+            </h3>
+
+            <p class="featured-project__description">
+              {{ featuredProject.description }}
+            </p>
+
+          </div>
+
+
+          <div class="featured-project__details">
+
+            <div>
+              <span>Role</span>
+
+              <strong>
+                {{ featuredProject.role }}
+              </strong>
+            </div>
+
+            <div>
+              <span>Focus</span>
+
+              <strong>
+                AI-enabled infrastructure intelligence
+              </strong>
+            </div>
+
+          </div>
+
+
+          <div class="project-technologies">
+
+            @for (
+            technology of featuredProject.technologies;
+            track technology
+            ) {
+            <span>
+              {{ technology }}
+            </span>
+            }
+
+          </div>
+
+
+          @if (featuredProject.url) {
+          <a class="project-link" [href]="featuredProject.url" target="_blank" rel="noopener noreferrer">
+            <span>
+              {{ featuredProject.linkText }}
+            </span>
+
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M5 12h14" />
+              <path d="m13 6 6 6-6 6" />
+            </svg>
+          </a>
+          }
+
+        </div>
+
+      </article>
+
+    </div>
+
+  </section>
+
+
+  <!-- =====================================================
+       PROJECT INDEX
+  ====================================================== -->
+
+  <section class="section project-index">
+
+    <div class="page-container">
+
+      <div class="project-index__heading">
+
+        <div>
+          <p class="eyebrow">
+            03 · Project index
+          </p>
+
+          <h2>
+            Selected systems & platforms.
+          </h2>
+        </div>
+
+        <p>
+          Work across public information, operational
+          systems, business processes, artificial
+          intelligence, and digital platforms.
+        </p>
+
+      </div>
+
+
+      <div class="project-grid">
+
+        @for (
+        project of remainingProjects;
+        track project.id
+        ) {
+
+        <article class="project-card">
+
+          <div class="project-card__top">
+
+            <span class="project-card__number">
+              {{ project.number }}
+            </span>
+
+            @if (project.status) {
+            <span class="project-status">
+              <i></i>
+              {{ project.status }}
+            </span>
+            }
+
+          </div>
+
+
+          <div class="project-card__content">
+
+            <span class="project-category">
+              {{ project.category }}
+            </span>
+
+            <h3>
+              {{ project.title }}
+            </h3>
+
+            <p>
+              {{ project.description }}
+            </p>
+
+          </div>
+
+
+          <div class="project-card__role">
+
+            <span>Role</span>
+
+            <strong>
+              {{ project.role }}
+            </strong>
+
+          </div>
+
+
+          <div class="project-technologies">
+
+            @for (
+            technology of project.technologies;
+            track technology
+            ) {
+            <span>
+              {{ technology }}
+            </span>
+            }
+
+          </div>
+
+
+          <div class="project-card__footer">
+
+            @if (project.url) {
+
+            <a class="project-link" [href]="project.url" target="_blank" rel="noopener noreferrer">
+              <span>
+                {{ project.linkText }}
+              </span>
+
+              <svg viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M5 12h14" />
+                <path d="m13 6 6 6-6 6" />
+              </svg>
+            </a>
+
+            } @else {
+
+            <span class="project-private">
+              Internal system
+            </span>
+
+            }
+
+          </div>
+
+        </article>
+
+        }
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- =====================================================
+       ENGINEERING PROCESS
+  ====================================================== -->
+
+  <section class="section project-process">
+
+    <div class="page-container">
+
+      <div class="project-process__heading">
+
+        <div>
+          <p class="eyebrow">
+            04 · Engineering approach
+          </p>
+
+          <h2>
+            From problem to operation.
+          </h2>
+        </div>
+
+        <p>
+          The projects may use different technologies and
+          solve different problems, but the engineering
+          process follows the same principle: understand the
+          system before building it.
+        </p>
+
+      </div>
+
+
+      <div class="project-process__flow">
+
+        @for (
+        principle of projectPrinciples;
+        track principle.number;
+        let last = $last
+        ) {
+
+        <article class="process-card">
+
+          <div class="process-card__top">
+
+            <span>
+              {{ principle.number }}
+            </span>
+
+            <small>
+              {{ principle.label }}
+            </small>
+
+          </div>
+
+          <h3>
+            {{ principle.title }}
+          </h3>
+
+          <p>
+            {{ principle.description }}
+          </p>
+
+        </article>
+
+
+        @if (!last) {
+        <div class="process-connector" aria-hidden="true">
+          <span></span>
+        </div>
+        }
+
+        }
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- =====================================================
+       PROJECT PHILOSOPHY
+  ====================================================== -->
+
+  <section class="section philosophy">
+
+    <div class="page-container philosophy__layout">
+
+      <div class="philosophy__statement">
+
+        <p class="eyebrow">
+          05 · Beyond the interface
+        </p>
+
+        <blockquote>
+          A successful project is not just software that
+          works. It is a system that fits the environment
+          around it.
+        </blockquote>
+
+      </div>
+
+
+      <div class="philosophy__details">
+
+        <div>
+          <span>01</span>
+
+          <p>
+            Interfaces should reflect the way people
+            actually work.
+          </p>
+        </div>
+
+        <div>
+          <span>02</span>
+
+          <p>
+            Architecture should support change rather than
+            make change expensive.
+          </p>
+        </div>
+
+        <div>
+          <span>03</span>
+
+          <p>
+            Data should become useful information, not just
+            stored records.
+          </p>
+        </div>
+
+        <div>
+          <span>04</span>
+
+          <p>
+            Deployment and operation are part of
+            engineering—not an afterthought.
+          </p>
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- =====================================================
+       CTA
+  ====================================================== -->
+
+  <section class="section projects-cta">
+
+    <div class="page-container">
+
+      <div class="projects-cta__card">
+
+        <div class="projects-cta__content">
+
+          <p class="eyebrow">
+            Have a project in mind?
+          </p>
+
+          <h2>
+            Let's build something useful.
+          </h2>
+
+          <p>
+            From new digital platforms to integrations,
+            automation, data systems, and AI-enabled
+            applications, the conversation can start with
+            the problem you're trying to solve.
+          </p>
+
+        </div>
+
+
+        <a class="projects-cta__action" routerLink="/contact">
+          <span>
+            Start a conversation
+          </span>
+
+          <svg viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M5 12h14" />
+            <path d="m13 6 6 6-6 6" />
+          </svg>
+        </a>
+
+      </div>
+
+    </div>
+
+  </section>
+
+</div>

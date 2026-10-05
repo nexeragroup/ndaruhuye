@@ -1,0 +1,17 @@
+:host {
+  display: block;
+  min-block-size: 100dvh;
+}
+
+.site-layout {
+  display: flex;
+  min-block-size: 100dvh;
+  flex-direction: column;
+  background: var(--background);
+  color: var(--text-primary);
+}
+
+.site-main {
+  flex: 1;
+  min-inline-size: 0;
+}

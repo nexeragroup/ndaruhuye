@@ -1,0 +1,146 @@
+<header class="site-header">
+  <div class="site-header__inner">
+
+    <!-- Brand -->
+    <a class="brand" [routerLink]="['/']" fragment="home" aria-label="Ndaruhuye home"
+      (click)="setActiveSection('home'); closeMenu()">
+      <span class="brand__mark" aria-hidden="true">
+        N
+      </span>
+
+      <span class="brand__content">
+        <strong class="brand__name">
+          Ndaruhuye
+        </strong>
+
+        <span class="brand__label">
+          Technology &amp; AI
+        </span>
+      </span>
+    </a>
+
+
+    <!-- Desktop Navigation -->
+    <nav class="desktop-navigation" aria-label="Primary navigation">
+      @for (item of navigationItems; track item.route) {
+      <a [routerLink]="item.route" [fragment]="item.fragment" [class.is-active]="isNavigationActive(item)"
+        [attr.aria-current]="
+            isNavigationActive(item)
+              ? item.fragment
+                ? 'location'
+                : 'page'
+              : null
+          " (click)="handleNavigation(item)">
+        {{ item.label }}
+      </a>
+      }
+    </nav>
+
+
+    <!-- Header Actions -->
+    <div class="site-header__actions">
+
+      <!-- Contact -->
+      <a class="contact-link" [routerLink]="contactNavigation.route" [fragment]="contactNavigation.fragment"
+        [class.is-active]="
+          isNavigationActive(contactNavigation)
+        " [attr.aria-current]="
+          isNavigationActive(contactNavigation)
+            ? 'location'
+            : null
+        " (click)="handleNavigation(contactNavigation)">
+        {{ contactNavigation.label }}
+      </a>
+
+
+      <!-- Theme -->
+      <button type="button" class="theme-button" [attr.aria-label]="
+          theme.dark()
+            ? 'Switch to light mode'
+            : 'Switch to dark mode'
+        " [attr.aria-pressed]="theme.dark()" (click)="toggleTheme()">
+        @if (theme.dark()) {
+        <svg aria-hidden="true" viewBox="0 0 24 24" focusable="false">
+          <circle cx="12" cy="12" r="4" />
+
+          <path d="
+                M12 2v2
+                m0 16v2
+                M4.93 4.93l1.41 1.41
+                m11.32 11.32 1.41 1.41
+                M2 12h2
+                m16 0h2
+                M4.93 19.07l1.41-1.41
+                M17.66 6.34l1.41-1.41
+              " />
+        </svg>
+        } @else {
+        <svg aria-hidden="true" viewBox="0 0 24 24" focusable="false">
+          <path d="
+                M20.5 14.5
+                A8.5 8.5 0 0 1 9.5 3.5
+                8.5 8.5 0 1 0 20.5 14.5Z
+              " />
+        </svg>
+        }
+      </button>
+
+
+      <!-- Mobile Menu -->
+      <button type="button" class="menu-button" [class.menu-button--open]="menuOpen()" [attr.aria-expanded]="menuOpen()"
+        aria-controls="mobile-navigation" [attr.aria-label]="
+          menuOpen()
+            ? 'Close navigation menu'
+            : 'Open navigation menu'
+        " (click)="toggleMenu()">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+
+    </div>
+
+  </div>
+</header>
+
+
+<!-- =====================================================
+     MOBILE NAVIGATION
+====================================================== -->
+
+@if (menuOpen()) {
+
+<button type="button" class="menu-backdrop" aria-label="Close navigation menu" (click)="closeMenu()"></button>
+
+<nav id="mobile-navigation" class="mobile-navigation" aria-label="Primary navigation">
+
+  @for (item of navigationItems; track item.label) {
+  <a [routerLink]="item.route" [fragment]="item.fragment" [class.is-active]="isNavigationActive(item)"
+    [attr.aria-current]="
+          isNavigationActive(item)
+            ? item.fragment
+              ? 'location'
+              : 'page'
+            : null
+        " (click)="handleNavigation(item)">
+    {{ item.mobileLabel ?? item.label }}
+  </a>
+  }
+
+
+  <!-- Mobile Contact -->
+  <a [routerLink]="contactNavigation.route" [fragment]="contactNavigation.fragment" [class.is-active]="
+        isNavigationActive(contactNavigation)
+      " [attr.aria-current]="
+        isNavigationActive(contactNavigation)
+          ? 'location'
+          : null
+      " (click)="handleNavigation(contactNavigation)">
+    {{
+    contactNavigation.mobileLabel ??
+    contactNavigation.label
+    }}
+  </a>
+
+</nav>
+}

@@ -1,0 +1,42 @@
+.portfolio-page {
+  overflow: hidden;
+}
+
+.portfolio-page .page-container {
+  width: min(100% - var(--space-8), var(--content-max-width));
+  margin-inline: auto;
+}
+
+.portfolio-page .section {
+  position: relative;
+  padding-block: var(--space-16);
+}
+
+.portfolio-page .eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  color: var(--text-brand);
+  font-size: var(--font-size-xs);
+  font-weight: var(--font-weight-semibold);
+  letter-spacing: 0.11em;
+  line-height: var(--line-height-normal);
+  text-transform: uppercase;
+}
+
+.portfolio-page .eyebrow::before {
+  inline-size: 1.5rem;
+  block-size: 1px;
+  background: currentColor;
+  content: '';
+}
+
+@media (min-width: 48rem) {
+  .portfolio-page .page-container {
+    width: min(100% - var(--space-12), var(--content-max-width));
+  }
+
+  .portfolio-page .section {
+    padding-block: var(--space-20);
+  }
+}
