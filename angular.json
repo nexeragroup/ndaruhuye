@@ -133,18 +133,7 @@
               "assets": [
                 {
                   "glob": "**/*",
-                  "input": "public",
-                  "ignore": ["robots.txt", "sitemap.xml"]
-                },
-                {
-                  "glob": "robots.txt",
-                  "input": "src/seo/prod",
-                  "output": "/"
-                },
-                {
-                  "glob": "sitemap.xml",
-                  "input": "src/seo/prod",
-                  "output": "/"
+                  "input": "public"
                 }
               ],
               "outputPath": {
